@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="zyx">
+	<title>wuziqi</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style>
+		.table td{
+			border:1px solid #F00;
+			height: 80px;
+			width: 80px;
+			text-align:center;
+		} 
+		#td{
+			text-align:center;
+			height: 50px;
+			width: 50px;
+			border-radius: 10px;
+			margin: 0 auto;
+		}
+		.light1{
+			width: 10px;
+			height: 10px;
+			border-radius: 5px;
+			border: 1px solid #FFF;
+			background-color: red;
+		}
+		.light2{
+			width: 10px;
+			height: 10px;
+			border-radius: 5px;
+			border: 1px solid #FFF;
+			background-color: blue;
+		}
+		
+	</style>
+</head>
+<body>
+<div id="login">
+	<table class="table" align="center">
+		<tr>
+			<td colspan="2" align="center">请填写对弈双方姓名:</td>
+		</tr>
+		<tr>
+			<td>红方姓名:</td>
+			<td><input type="text" id="hongfangName" value=""></td>
+		</tr>
+		<tr>
+			<td>蓝方姓名:</td>
+			<td><input type="text" id="lanfangName" value=""></td>
+		</tr>
+		<tr>
+			<td colspan="2" ><button onclick="login_begin()" id="login_sure" style="width:100px;height:30px;text-align:center;">确认</button>
+			<button onclick="login_chongzhi()" style="width:100px;height:30px;text-align:center;">重置</button></td>
+		</tr>
+	</table>
+</div>
+<div id="content">
+<div>
+	<div style="text-align:center;">对弈双方:
+		红方姓名:<span id="hongfangName2"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		蓝方姓名:<span id="lanfangName2"></span><br/>
+	</div><br/>
+	<div style="text-align:center;" id="title_wzq">轮到红方下子</div>
+	<div style="text-align:center;" id="title_djs"></div>
+	<table class="table" align="center">
+		<tr><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td></tr>
+		<tr><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td></tr>
+		<tr><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td></tr>
+		<tr><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td></tr>
+		<tr><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td></tr>
+		<tr><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td></tr>
+		<tr><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td></tr>
+		<tr><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td></tr>
+		<tr><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td></tr>
+		<tr><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td><td ><div id="td" onclick="xiazi(this)"></div></td></tr>
+	</table>
+</div>
+<div class="button">
+	<button onclick="reStart()" style="width:100px;height:60px;text-align:center;">重新开始</button>
+</div>
+</div>
+	<script type="text/javascript">
+		/*author:张艺翔，版权所有，违者必究^_^*/
+		$("#content").hide();
+		
+		
+		//登录页初始化
+		$("#hongfangName").focus();
+		$("#hongfangName").keydown(function() { //焦点在弹窗第一个时，按回车，焦点跳转确定
+			if (event.keyCode == 13) {
+				$("#lanfangName").focus();
+				return;
+			}
+		});
+		$("#lanfangName").keydown(function() { //焦点在弹窗第一个时，按回车，焦点跳转确定
+			if (event.keyCode == 13) {
+				$("#login_sure").click();
+				return;
+			}
+		});
+		//登陆
+		function login_begin(){
+			hongfangName = $.trim($("#hongfangName").val());
+			lanfangName = $.trim($("#lanfangName").val());
+			if(hongfangName == ""){
+				alert("请填写红方姓名");
+				return;
+			}
+			if(lanfangName == ""){
+				alert("请填写蓝方姓名");
+				return;
+			}
+			alert("即将开始由张大虾开发的五子棋!");
+			$("#hongfangName2").html(hongfangName);
+			$("#lanfangName2").html(lanfangName);
+			$("#login").hide();
+			$("#content").show();
+			djs();//初始化倒计时开始
+		}
+		//重置
+		function login_chongzhi(){
+			$("#hongfangName").val("");
+			$("#lanfangName").val("");
+		}
+		
+		
+		
+		
+		
+		//主体页
+		var hongfangName = "";
+		var lanfangName = "";
+		var juese = "红方"//默认红方
+		var juese_zhi = "light1";//默认红方
+		var time = 30;//倒计时
+		var dinshi;//定时变量
+		
+		//重新开始
+		function reStart(){
+			location.reload();
+		}
+		
+		//倒计时30秒
+		function djs(){
+			if(time == 0){
+				if(juese == "红方"){
+					alert("时间到，轮到蓝方");
+					$("#title_wzq").html("轮到蓝方下子");
+					juese_zhi = "light2";
+					juese = "蓝方";
+				}else{
+					alert("时间到，轮到红方");
+					$("#title_wzq").html("轮到红方下子");
+					juese_zhi = "light1";
+					juese = "红方";
+				}
+				time = 30;
+			}
+			$("#title_djs").html("倒计时还有" + time + "秒");
+			time--;
+			dinshi = setTimeout("djs()",1000);
+		}
+		
+		
+		//下子 
+		function xiazi(doc){
+			$(doc).toggleClass(juese_zhi);
+			$(doc).attr("onclick","");
+			var sum = 0;
+			if(juese_zhi == "light1"){
+				sum = checkwulian(doc,"light1");//红方
+			}else{
+				sum = checkwulian(doc,"light2");//蓝方
+			}
+			if(sum == 5){
+				if(juese == "红方"){
+					alert(juese + " " + hongfangName + "胜利,确认后重新开始");
+				}else{
+					alert(juese + " " + lanfangName + "胜利,确认后重新开始");
+				}
+				location.reload();
+			}
+			if(juese_zhi == "light1"){
+				juese_zhi = "light2";
+				juese = "蓝方";
+			}else{
+				juese_zhi = "light1";
+				juese = "红方";
+			}
+			$("#title_wzq").html("轮到" + juese + "下子");
+			time = 30;
+			window.clearTimeout(dinshi);
+			djs();
+		}
+		
+		//判断是否五连
+		function checkwulian(doc,who){
+			//横向判断开始///////////
+			var sum = 1;
+			var prevAllSum = $(doc).parent().prevAll().length;//当前元素div父节点td之前所有的兄弟节点td
+			var nextAllSum = $(doc).parent().nextAll().length;//当前元素div父节点td之后所有的兄弟节点td
+			//先判断左边
+			if(prevAllSum > 0){
+				if($(doc).parent().prev().find("div").attr("onclick") == "" && $(doc).parent().prev().find("div").attr("class") == who){
+					sum ++;
+					if(prevAllSum > 1){
+						if($(doc).parent().prev().prev().find("div").attr("onclick") == "" && $(doc).parent().prev().prev().find("div").attr("class") == who){
+							sum ++;
+							if(prevAllSum > 2){
+								if($(doc).parent().prev().prev().prev().find("div").attr("onclick") == "" && $(doc).parent().prev().prev().prev().find("div").attr("class") == who){
+									sum ++;
+									if(prevAllSum > 3){
+										if($(doc).parent().prev().prev().prev().prev().find("div").attr("onclick") == "" && $(doc).parent().prev().prev().prev().prev().find("div").attr("class") == who){
+											sum ++;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			if(sum == 5){
+				return sum;
+			}
+			//再判断右边
+			if(nextAllSum > 0){
+				if($(doc).parent().next().find("div").attr("onclick") == "" && $(doc).parent().next().find("div").attr("class") == who){
+					sum ++;
+					if(sum == 5){
+						return sum;
+					}else{
+						if(nextAllSum > 1){
+							if($(doc).parent().next().next().find("div").attr("onclick") == "" && $(doc).parent().next().next().find("div").attr("class") == who){
+								sum ++;
+								if(sum == 5){
+									return sum;
+								}else{
+									if(nextAllSum > 2){
+										if($(doc).parent().next().next().next().find("div").attr("onclick") == "" && $(doc).parent().next().next().next().find("div").attr("class") == who){
+											sum ++;
+											if(sum == 5){
+												return sum;
+											}else{
+												if(nextAllSum > 3){
+													if($(doc).parent().next().next().next().next().find("div").attr("onclick") == "" && $(doc).parent().next().next().next().next().find("div").attr("class") == who){
+														sum ++;
+														if(sum == 5){
+															return sum;
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			//横向判断结束//////////////////////
+			
+			
+			//纵向判断开始//////////////////////
+			if(sum != 5){
+			var sum2 = 1;
+			var prevAllSum2 = $(doc).parent().parent().prevAll().length;//当前元素div父节点td父节点tr之前所有的兄弟节点tr
+			var nextAllSum2 = $(doc).parent().parent().nextAll().length;//当前元素div父节点td父节点tr之后所有的兄弟节点tr
+			//先判断上边
+			if(prevAllSum2 > 0){
+				if($(doc).parent().parent().prev().find("td:eq("+prevAllSum+")").find("div").attr("onclick") == "" && $(doc).parent().parent().prev().find("td:eq("+prevAllSum+")").find("div").attr("class") == who){
+					sum2 ++;
+					if(prevAllSum2 > 1){
+						if($(doc).parent().parent().prev().prev().find("td:eq("+prevAllSum+")").find("div").attr("onclick") == "" && $(doc).parent().parent().prev().prev().find("td:eq("+prevAllSum+")").find("div").attr("class") == who){
+							sum2 ++;
+							if(prevAllSum2 > 2){
+								if($(doc).parent().parent().prev().prev().prev().find("td:eq("+prevAllSum+")").find("div").attr("onclick") == "" && $(doc).parent().parent().prev().prev().prev().find("td:eq("+prevAllSum+")").find("div").attr("class") == who){
+									sum2 ++;
+									if(prevAllSum2 > 3){
+										if($(doc).parent().parent().prev().prev().prev().prev().find("td:eq("+prevAllSum+")").find("div").attr("onclick") == "" && $(doc).parent().parent().prev().prev().prev().prev().find("td:eq("+prevAllSum+")").find("div").attr("class") == who){
+											sum2 ++;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			if(sum2 == 5){
+				return sum2;
+			}
+			//再判断下边
+			if(nextAllSum2 > 0){
+				if($(doc).parent().parent().next().find("td:eq("+prevAllSum+")").find("div").attr("onclick") == "" && $(doc).parent().parent().next().find("td:eq("+prevAllSum+")").find("div").attr("class") == who){
+					sum2 ++;
+					if(sum2 == 5){
+						return sum2;
+					}else{
+						if(nextAllSum2 > 1){
+							if($(doc).parent().parent().next().next().find("td:eq("+prevAllSum+")").find("div").attr("onclick") == "" && $(doc).parent().parent().next().next().find("td:eq("+prevAllSum+")").find("div").attr("class") == who){
+								sum2 ++;
+								if(sum2 == 5){
+									return sum2;
+								}else{
+									if(nextAllSum2 > 2){
+										if($(doc).parent().parent().next().next().next().find("td:eq("+prevAllSum+")").find("div").attr("onclick") == "" && $(doc).parent().parent().next().next().next().find("td:eq("+prevAllSum+")").find("div").attr("class") == who){
+											sum2 ++;
+											if(sum2 == 5){
+												return sum2;
+											}else{
+												if(nextAllSum2 > 3){
+													if($(doc).parent().parent().next().next().next().next().find("td:eq("+prevAllSum+")").find("div").attr("onclick") == "" && $(doc).parent().parent().next().next().next().next().find("td:eq("+prevAllSum+")").find("div").attr("class") == who){
+														sum2 ++;
+														if(sum2 == 5){
+															return sum2;
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			}
+			//纵向判断结束//////////////////////
+			
+			if(sum < sum2){
+				sum = sum2;
+			}
+			return sum;
+		}
+		
+	
+	</script>
+</body>
+</html>
